@@ -1,0 +1,13 @@
+命令创建项目
+	创建 django : django-admin startproject "项目名“
+
+	创建 app ：python manage.py startapp app名
+                django-admin startapp app名
+
+	运行项目 python manag.py runserver  加域名
+
+MVC
+
+
+MVT
+

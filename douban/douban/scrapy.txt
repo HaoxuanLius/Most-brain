@@ -1,0 +1,29 @@
+框架创建
+	创建项目： scrapy startproject 项目名
+	创建爬虫：scrapy genspider 爬虫名 ‘爬虫域名’
+		scrapy genspider -t crawl  爬虫名 ‘爬虫域名’
+				模版名
+
+	运秆爬虫：scrapy crawl 爬虫名
+
+
+	# FEED_URI=''
+	# FEED_FORMAT=''
+	# FEED_EXPORT_ENCODING='ansi'
+管道实例：
+		from itemadapter import ItemAdapter
+		from openpyxl import Workbook
+
+
+		class DoubanPipeline:
+			def __init__(self) -> None:
+				self.file=Workbook()
+				self.avi=self.file.active
+			
+			def process_item(self, item, spider):
+				self.avi.append([item['name'],item['daoy'],item['time']])
+
+				return item
+			def close_spider(self,spider):
+				self.file.save(r'e:\Users\yrfs\Desktop\chai.xlsx')
+				self.file.close()
